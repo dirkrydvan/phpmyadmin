@@ -6,7 +6,7 @@ welche temorär für Prüfzwecke den Zugriff auf jeden mysql Server erlaubt.
 Die enscheidende Konfigzeile lässt in der Anmeldemaske ein zusätzliches Eingabefeld für den Zielserver eerscheinen:
 $cfg['AllowArbitraryServer'] = '1';
 
-## Openshift Build Konfiguration
+## Openshift Build Konfiguration (Source/S2I Strategie nicht Docker Strategie)
 Das Source to Image Verfahren funktioniert nur in Openshift mit speziell dafür vorbereiteten Base Images.
 Diese enthalten zusätzlich zu den benötigten Betriebsystem und Middleware ebenfalls Skripte zum abholen, ggf. Kompilieren und Ablegen der Programme aus einem Git-Repository.
 
