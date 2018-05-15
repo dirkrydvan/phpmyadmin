@@ -23,7 +23,7 @@ Das Openshift-Projekt bzw. Kubernetes-Namespace "Werkzeugprojekt" wurde schon an
 
 
 ___YAML-Datei build-phpmyadmin-arbitary-s2i.yaml___
-```
+```yaml
 apiVersion: v1
 kind: BuildConfig
 metadata:
