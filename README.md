@@ -58,7 +58,7 @@ status:
 Das kann per Weboberflöche oder Komandozeile geschehen. 
 Hier wird oc genutzt. Das "oc" Programm wurde schon vorher lokal installiert.
 
-```
+```bash
 dirkrydvan@workstation: oc create -f build-phpmyadmin-arbitary-s2i.yaml
 ```
 
@@ -67,7 +67,7 @@ dirkrydvan@workstation: oc create -f build-phpmyadmin-arbitary-s2i.yaml
 Das Openshift-Projekt bzw. Kubernetes-Namespace "Werkzeugprojekt" wurde schon angelegt.
 Nun kann der Build gestartet werden. 
 
-```
+```bash
 dirkrydvan@workstation: oc start-build -n werkzeugprojekt phpmyadmin --follow=true
 build "phpmyadmin-13" started
 Cloning "https://github.com/dirkrydvan/phpmyadmin" ...
@@ -142,7 +142,7 @@ dirkrydvan@workstation:$
 
 ### Deployment Konfiguration
 
-```
+```yaml
 kind: "DeploymentConfig"
 apiVersion: "v1"
 metadata:
@@ -178,7 +178,7 @@ spec:
 
 ### Service Konfiguration
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -201,7 +201,7 @@ status:
 
 ### Route anlegen
 
-```
+```yaml
 apiVersion: v1
 kind: Route
 metadata:
