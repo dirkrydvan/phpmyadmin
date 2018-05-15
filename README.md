@@ -6,7 +6,7 @@ welche temorär für Prüfzwecke den Zugriff auf jeden mysql Server erlaubt.
 Die enscheidende Konfigzeile lässt in der Anmeldemaske ein zusätzliches Eingabefeld für den Zielserver eerscheinen:
 $cfg['AllowArbitraryServer'] = '1';
 
-## Openshift Build Kofiguration
+## Openshift Build Konfiguration
 Das Source to Image Verfahren funktioniert nur in Openshift mit speziell dafür vorbereiteten Base Images.
 Diese enthalten zusätzlich zu den benötigten Betriebsystem und Middleware ebenfalls Skripte zum abholen, ggf. Kompilieren und Ablegen der Programme aus einem Git-Repository.
 
@@ -16,7 +16,8 @@ PHPmyadmin ist eien PHP Anwendung und deshalb muss ein Base Image mit PHP, Webse
 Die PHPmyadmin Anwendung slebst muss einfach auf einem Git-repository abgelegt sein:
 https://github.com/dirkrydvan/phpmyadmin
 
-build-phpmyadmin-arbitary-s2i.yaml
+___build-phpmyadmin-arbitary-s2i.yaml___
+```
 apiVersion: v1
 kind: BuildConfig
 metadata:
@@ -44,3 +45,4 @@ spec:
       kind: ImageStreamTag
       name: 'phpmyadmin:0.1'
 status:
+```
