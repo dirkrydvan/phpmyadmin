@@ -14,9 +14,7 @@ Diese enthalten zusätzlich zu den benötigten Betriebsystem und Middleware eben
 >Da die speziellen Skripte im vorbereiteten S2I Image das Anwendungs-Image aufbauen, sind keine direkten Docker Befehle und kein Dockerfile als Bauanleitung vom Nutzer anzugeben.
 
 PHPmyadmin ist eine PHP Anwendung und deshalb muss ein Base Image mit PHP, Webserver und den speziellen Skripten genutzt werden:
-"php-71-rhel7" --> registry.access.redhat.com/rhscl/php-71-rhel7
-
-Doku: https://access.redhat.com/containers/?tab=tech-details#/registry.access.redhat.com/rhscl/php-71-rhel7
+"php-71-rhel7" --> https://access.redhat.com/containers/?tab=tech-details#/registry.access.redhat.com/rhscl/php-71-rhel7
 
 Die PHPmyadmin Anwendung slebst muss einfach auf einem Git-repository abgelegt sein:
 https://github.com/dirkrydvan/phpmyadmin
