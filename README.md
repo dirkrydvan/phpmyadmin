@@ -9,10 +9,11 @@ $cfg['AllowArbitraryServer'] = '1';
 ## Openshift Build Konfiguration (Source/S2I Strategie nicht Docker Strategie)
 Das Source to Image Verfahren funktioniert nur in Openshift mit speziell dafür vorbereiteten Base Images.
 Diese enthalten zusätzlich zu den benötigten Betriebsystem und Middleware ebenfalls Skripte zum abholen, ggf. Kompilieren und Ablegen der Programme aus einem Git-Repository.
+
 > Obacht! Kein Dockerfile!
 >Da die speziellen Skripte im vorbereiteten S2I Image das Anwendungs-Image aufbauen, sind keine direkten Docker Befehle und kein Dockerfile als Bauanleitung vom Nutzer anzugeben.
 
-PHPmyadmin ist eien PHP Anwendung und deshalb muss ein Base Image mit PHP, Webserver und den spzeieleln Skripten genutzt werden:
+PHPmyadmin ist eine PHP Anwendung und deshalb muss ein Base Image mit PHP, Webserver und den speziellen Skripten genutzt werden:
 "php-71-rhel7" --> registry.access.redhat.com/rhscl/php-71-rhel7
 
 Die PHPmyadmin Anwendung slebst muss einfach auf einem Git-repository abgelegt sein:
