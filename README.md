@@ -139,6 +139,83 @@ dirkrydvan@workstation:$
 
 ### Deployment Konfiguration
 
+```
+kind: "DeploymentConfig"
+apiVersion: "v1"
+metadata:
+  name: "phpmyadmin"
+spec:
+  template:
+    metadata:
+      labels:
+        name: "phpmyadmin"
+    spec:
+      containers:
+        - name: "phpmyadmin"
+          image: "phpmyadmin:0.1"
+          ports:
+            - containerPort: 8080
+              protocol: "TCP"
+  replicas: 5
+  selector:
+    name: "phpmyadmin"
+  triggers:
+    - type: "ConfigChange"
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - "phpmyadmin"
+        from:
+          kind: "ImageStreamTag"
+          name: "phpmyadmin:0.1"
+  strategy:
+```
+
+
 ### Service Konfiguration
 
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin
+  namespace: werkzeugprojekt
+  labels:
+    app: phpmyadmin
+spec:
+  ports:
+    - name: phpmyadmin
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    deploymentconfig: phpmyadmin
+  type: ClusterIP
+  sessionAffinity: None
+status:
+```
+
 ### Route anlegen
+
+```
+apiVersion: v1
+kind: Route
+metadata:
+  name: phpmyadmin
+  namespace: werkzeugprojekt
+  labels:
+    app: phpmayadmin
+spec:
+  host: phpmyadmin-werkzeugprojekt.augustusburg.org
+  to:
+    kind: Service
+    name: phpmyadmin
+    weight: 100
+  port:
+    targetPort: phpmyadmin
+  tls:
+    termination: edge
+  wildcardPolicy: None
+status:
+```
