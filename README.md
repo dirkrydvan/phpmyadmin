@@ -147,11 +147,15 @@ kind: "DeploymentConfig"
 apiVersion: "v1"
 metadata:
   name: "phpmyadmin"
+  labels:
+    app: phpmyadmin
 spec:
   template:
     metadata:
       labels:
         name: "phpmyadmin"
+        app: phpmyadmin
+        provider: phpmyadmin
     spec:
       containers:
         - name: "phpmyadmin"
@@ -193,7 +197,7 @@ spec:
       port: 8080
       targetPort: 8080
   selector:
-    deploymentconfig: phpmyadmin
+    provider: phpmyadmin
   type: ClusterIP
   sessionAffinity: None
 status:
