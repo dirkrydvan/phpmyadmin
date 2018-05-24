@@ -1,3 +1,5 @@
+#!/bin/sh
+echo " pre init script"
 ### skript zum erstellen .htacces und .htpasswd
 echo 'AuthType Basic' > ../.htaccess
 echo 'AuthName '$(cat /tmp/phpmyadmin-basicauth-secret/phpmyadmin-authname) >> ../.htaccess
