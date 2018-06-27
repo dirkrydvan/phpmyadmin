@@ -163,6 +163,14 @@ spec:
           ports:
             - containerPort: 8080
               protocol: "TCP"
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
   replicas: 5
   selector:
     name: "phpmyadmin"
